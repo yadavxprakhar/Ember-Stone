@@ -18,7 +18,7 @@
 
 ## ✨ Live Preview
 
-🔗 **[emberandstone.vercel.app](https://ember-stone.vercel.app)** 
+🔗 **[emberandstone.vercel.app](https://ember-stone-seven.vercel.app/)** 
 
 ---
 
