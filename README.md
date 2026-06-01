@@ -22,17 +22,6 @@
 
 ---
 
-## 📸 Screenshots
-
-| Hero Section | Cinematic Film Tape Gallery |
-|---|---|
-| *Full-screen organic backdrop with candlelight glows* | *Infinite horizontal marquee of curated dining imagery* |
-
-| Signature Dishes | Reservation Portal |
-|---|---|
-| *Editorial 3-column card grid with hover reveals* | *Custom date & guest booking dashboard* |
-
----
 
 ## 🏗️ Architecture & Tech Stack
 
