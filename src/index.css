@@ -1,0 +1,197 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-base: #0D0D0D;
+  --color-secondary: #141410;
+  --color-surface-light: #1A1914;
+  --color-accent-gold: #C8A96E;
+  --color-accent-gold-hover: #D4B483;
+  --color-accent-cream: #F5F0E8;
+  --color-muted-text: #8A8478;
+  --color-bg-footer: #0A0A08;
+
+  --font-display: "Playfair Display", serif;
+  --font-sans: Inter, sans-serif;
+
+  --border-radius-none: 0px;
+  
+  --letter-spacing-eyebrow: 0.14em;
+  --letter-spacing-btn: 0.10em;
+}
+
+:root {
+  --bg-base: #0D0D0D;
+  --bg-secondary: #141410;
+  --bg-footer: #0A0A08;
+  --accent-gold: #C8A96E;
+  --accent-gold-hover: #D4B483;
+  --accent-cream: #F5F0E8;
+  --text-muted: #8A8478;
+  --border-gold: rgba(200,169,110,0.18);
+  --announcement-bg: #C8A96E;
+  --announcement-text: #0D0D0D;
+  
+  --in-oklab: ;
+  --in-oklch: ;
+}
+
+@supports (linear-gradient(in oklab, white, black)) {
+  :root {
+    --in-oklab: in oklab;
+    --in-oklch: in oklch;
+  }
+}
+
+html, body {
+  background-color: var(--bg-base);
+  color: var(--accent-cream);
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom premium scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-base);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-gold);
+  border-radius: 0px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-gold);
+}
+
+/* Scroll trigger animations */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1000ms cubic-bezier(0.25, 1, 0.5, 1), transform 1000ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.reveal-on-scroll.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom Clip Path Reveals */
+.clip-reveal {
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 1.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.clip-reveal.revealed {
+  clip-path: inset(0 0 0 0);
+}
+
+/* Custom Outlined Gold Button */
+.btn-primary {
+  border: 1px solid var(--accent-gold);
+  background: transparent;
+  color: var(--accent-gold);
+  padding: 14px 36px;
+  border-radius: 0px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  transition: all 300ms cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-primary:hover {
+  background: var(--accent-gold);
+  color: #0D0D0D;
+}
+
+/* Custom Outlined Cream Button */
+.btn-secondary {
+  border: 1px solid rgba(245, 240, 232, 0.3);
+  background: transparent;
+  color: var(--accent-cream);
+  padding: 14px 36px;
+  border-radius: 0px;
+  font-family: 'Inter', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  transition: all 300ms cubic-bezier(0.25, 1, 0.5, 1);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-cream);
+  background: rgba(245, 240, 232, 0.05);
+}
+
+/* Custom Text Link Underline */
+.text-link {
+  color: var(--accent-cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--accent-gold);
+  padding-bottom: 2px;
+  transition: opacity 300ms ease;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+}
+
+.text-link:hover {
+  opacity: 0.7;
+}
+
+/* Chip Tag */
+.tag-chip {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--accent-gold);
+  border: 1px solid var(--border-gold);
+  padding: 4px 10px;
+  display: inline-block;
+}
+
+/* Background gradient for images */
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom var(--in-oklab), rgba(13,13,13,0) 40%, rgba(13,13,13,0.9) 100%);
+  transition: background 300ms ease;
+}
+
+.hover-card:hover .image-overlay {
+  background: linear-gradient(to bottom var(--in-oklab), rgba(13,13,13,0) 20%, rgba(13,13,13,0.85) 100%);
+}
+
+/* Animation utilities for the hero and text */
+@keyframes fadeInUpKey {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeInUpKey 1s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
